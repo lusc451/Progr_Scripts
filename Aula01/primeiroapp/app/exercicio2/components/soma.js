@@ -1,9 +1,7 @@
-export default function Soma(props){
-    return(
+export default function Soma(props) {
+    return (
         <div>
-            <h1>{props.valor1}</h1>
-            <h1>{props.valor2}</h1>
-            <h1>{}</h1>
+            {props.valor1} + {props.valor2} = {props.valor1 + props.valor2}
         </div>
     )
 }

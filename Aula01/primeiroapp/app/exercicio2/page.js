@@ -1,12 +1,10 @@
-import soma from '@/app/exercicio2/components/soma';
+import Soma from './components/soma.js'
 
-export default function Page(){
-    return(
+export default function Exercicio2() {
+    return (
         <div>
-            <h1>Soma</h1>
-            <soma valor1={10}>10</soma>
-            <soma valor2={20}>20</soma>
-            <soma resultado={soma.valor1 + soma.valor2}></soma>
+            ---- Soma ----
+            <Soma valor1={5} valor2={7} />
         </div>
     )
 }
