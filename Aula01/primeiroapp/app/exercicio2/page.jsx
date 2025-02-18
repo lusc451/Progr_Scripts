@@ -1,7 +1,7 @@
-import Soma from './components/soma.js';
-import Subtracao from './components/Subtracao.js';
-import Multiplicacao from './components/Multiplicacao.js';
-import Divisao from './components/Divisao.js';
+import Soma from './components/soma.jsx';
+import Subtracao from './components/Subtracao.jsx';
+import Multiplicacao from './components/Multiplicacao.jsx';
+import Divisao from './components/Divisao.jsx';
 
 export default function Exercicio2() {
     return (
