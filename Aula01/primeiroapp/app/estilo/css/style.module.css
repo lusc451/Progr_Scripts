@@ -1,0 +1,21 @@
+.button{
+    background-color: #09e089;
+    width: 300px;
+    height: 150px;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    color: #1a1a1a;
+}
+
+.h1{
+    text-align: center;
+}
+
+.button:hover{
+    background-color: #07d221;
+}
+
+.button:active{
+    transform: translateY(1px);
+}
