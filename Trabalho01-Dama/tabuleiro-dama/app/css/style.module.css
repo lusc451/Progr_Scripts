@@ -1,0 +1,49 @@
+.board {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    width: 400px;
+    height: 400px;
+    margin: auto;
+    border: 5px solid #333;
+}
+
+.square {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.black {
+    background-color: black;
+}
+
+.white {
+    background-color: white;
+}
+
+.piece {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.whitePiece {
+    background-color: #0ab6ea; /* Peças brancas (troquei para azul para melhorar a visualização) */
+}
+
+.blackPiece {
+    background-color: #11ce33; /* Peças pretas (troquei para um tom de verde para facilitar a visualização) */
+}
+
+/* Efeito hover nas casas do tabuleiro */
+.square:hover {
+    opacity: 0.8;
+}
+
+/* Efeito hover nas peças */
+.piece:hover {
+    transform: scale(1.1);
+    transition: 0.2s;
+}
