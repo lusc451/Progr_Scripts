@@ -1,36 +1,154 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🏁 Projeto Tabuleiro em Next.js
 
-## Getting Started
+Este projeto foi desenvolvido utilizando **Next.js** e estilização modular via **CSS Modules**. O objetivo é criar um tabuleiro interativo, estilizado com efeitos visuais para melhorar a experiência do usuário.
 
-First, run the development server:
+## 🚀 Como rodar o projeto
+
+### 🔧 Pré-requisitos
+
+Antes de começar, certifique-se de ter instalado:
+
+- [Node.js](https://nodejs.org/) (versão 16 ou superior)
+- [Yarn](https://yarnpkg.com/) ou [npm](https://www.npmjs.com/)
+
+### 📦 Instalação
+
+1. Clone o repositório:
+
+   ```bash
+   git clone https://github.com/seu-usuario/seu-repositorio.git
+   cd seu-repositorio
+   ```
+
+2. Instale as dependências:
+
+   ```bash
+   npm install
+   # ou
+   yarn install
+   ```
+
+### ▶️ Rodando o projeto
+
+Para iniciar o servidor de desenvolvimento, use:
 
 ```bash
 npm run dev
-# or
+# ou
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+O projeto estará disponível em **http://localhost:3000**.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🎨 Estilização
 
-## Learn More
+A estilização do projeto foi feita utilizando **CSS Modules**, garantindo isolamento dos estilos para evitar conflitos globais.
 
-To learn more about Next.js, take a look at the following resources:
+### 📌 Principais classes CSS:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+#### 📌 Tabuleiro (`board`)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```css
+.board {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    width: 400px;
+    height: 400px;
+    margin: auto;
+    border: 5px solid #333;
+}
+```
 
-## Deploy on Vercel
+- **`display: grid`** → Define um layout de grade para organizar os elementos do tabuleiro.
+- **`grid-template-columns: repeat(8, 1fr)`** → Cria 8 colunas de tamanho igual.
+- **`border: 5px solid #333`** → Adiciona uma borda ao redor do tabuleiro.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+#### 📌 Casas do tabuleiro (`square`)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```css
+.square {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+```
+
+- **`display: flex`** → Centraliza os elementos dentro das casas do tabuleiro.
+- **`width: 50px; height: 50px;`** → Define o tamanho fixo de cada quadrado do tabuleiro.
+
+#### 🎨 Cores do tabuleiro
+
+```css
+.black {
+    background-color: black;
+}
+
+.white {
+    background-color: white;
+}
+```
+
+- Alterna entre **preto** e **branco** para formar um padrão de tabuleiro.
+
+#### 🔵 Peças do jogo (`piece`)
+
+```css
+.piece {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+```
+
+- **`border-radius: 50%`** → Transforma os elementos em círculos para representar peças.
+
+##### 🎨 Cores das peças
+
+```css
+.whitePiece {
+    background-color: #0ab6ea;
+}
+
+.blackPiece {
+    background-color: #11ce33;
+}
+```
+
+- As cores foram ajustadas para **azul** e **verde** para melhorar a visualização.
+
+#### 🖱️ Efeitos ao passar o mouse
+
+```css
+.square:hover {
+    opacity: 0.8;
+}
+
+.piece:hover {
+    transform: scale(1.1);
+    transition: 0.2s;
+}
+```
+
+- **`opacity: 0.8`** → Ao passar o mouse sobre as casas, sua opacidade reduz levemente.
+- **`transform: scale(1.1)`** → Ao passar o mouse sobre as peças, elas aumentam 10% de tamanho.
+
+---
+
+## 🛠 Tecnologias utilizadas
+
+- **Next.js** – Framework React para renderização SSR e SSG.
+- **CSS Modules** – Para estilização modular e evitar conflitos globais.
+- **Flexbox & Grid** – Para alinhamento e organização dos elementos.
+
+---
+
+## 📜 Licença
+
+Este projeto é open-source e está sob a licença MIT.
+
+📌 **Autor:** _Lucas Cleiton dos Santos Antunes_  
+📌 **Contato:** _cleiton.lucas416@gmail.com_
