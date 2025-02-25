@@ -16,8 +16,9 @@ Antes de começar, certifique-se de ter instalado:
 1. Clone o repositório:
 
    ```bash
-   git clone https://github.com/seu-usuario/seu-repositorio.git
-   cd seu-repositorio
+   git clone https://github.com/lusc451/Progr_Scripts.git
+   cd Trabalho01-Dama
+   cd tabuleiro-dama
    ```
 
 2. Instale as dependências:
