@@ -4,16 +4,152 @@
   --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
 
   --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
+  --button-secondary-hover: #383838;
 
-  display: grid;
-  grid-template-rows: 20px 1fr 20px;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
   align-items: center;
   justify-items: center;
+  justify-content: center;
   min-height: 100svh;
   padding: 80px;
-  gap: 64px;
+  gap: 40px;
   font-family: var(--font-geist-sans);
+  background-image: url(/background.jpg);
+  background-size: cover; /* Adicione isso para cobrir todo o fundo */
+  background-position: center; /* Centraliza a imagem */
+  background-repeat: no-repeat; /* Evita repetição */
+}
+
+.title {
+  color: #202020;
+}
+
+.display {
+  display: flex;
+  background-color: #1e1e1e;
+  padding: 15px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  height: 115px;
+  animation: fadeInUp 0.2s ease-in-out;
+  max-width: 450px;
+  width: 100%; /* Adicionado */
+  overflow: hidden; /* Adicionado para garantir que nada ultrapasse */
+}
+
+.valor {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background-color: #8d8a8a;
+  color: #1e1e1e;
+  padding: 7px;
+  justify-content: flex-end;
+  align-items: flex-end;
+  border-radius: 5px;
+  width: 100%; /* Alterado de max-width para width */
+  overflow: hidden; /* Adicionado */
+}
+
+.valorPrev {
+  color: #363636;
+  font-size: 1.2rem;
+  animation: fadeInUp 0.2s ease-in-out;
+  width: 100%; /* Alterado */
+  text-align: right; /* Garante alinhamento à direita */
+  white-space: nowrap; /* Impede quebra de linha */
+  overflow: hidden; /* Esconde o que ultrapassar */
+  text-overflow: ellipsis; /* Adiciona "..." se o texto for muito longo */
+}
+
+.valorAtual {
+  font-size: 2.2rem;
+  animation: fadeInUp 0.2s ease-in-out;
+  width: 100%; /* Alterado */
+  text-align: right; /* Garante alinhamento à direita */
+  white-space: nowrap; /* Impede quebra de linha */
+  overflow: hidden; /* Esconde o que ultrapassar */
+  text-overflow: ellipsis; /* Adiciona "..." se o texto for muito longo */
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.teclado {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  max-width: 450px;
+  margin: 2rem auto;
+  margin-top: 0;
+  padding: 1rem;
+  background-color: #1e1e1e;
+  border-bottom-right-radius: 12px;
+  border-bottom-left-radius: 12px;
+  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2);
+  animation: fadeInUp 0.2s ease-in-out;
+
+}
+
+.botao {
+  background-color: #333;
+  color: #fff;
+  font-size: 1.5rem;
+  padding: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  width: 100px;
+}
+
+.botao0 {
+  grid-column: 1 / -1; /* Ocupa da primeira à última coluna */
+  width: 100%;
+  background-color: #333;
+  color: #fff;
+  font-size: 1.5rem;
+  padding: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  width: 100px;
+}
+
+
+.botao:hover {
+  background-color: #555;
+}
+
+.botao0:hover {
+  background-color: #555;
+}
+
+.botao.operador {
+  background-color: #5c2dab;
+}
+
+.botao.operador:hover {
+  background-color: #7742d6;
+}
+
+.botao.igual {
+  background-color: #228b22;
+}
+
+.botao.igual:hover {
+  background-color: #2ecc71;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,7 +158,7 @@
     --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
     --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
 
-    --button-primary-hover: #ccc;
+    --button-primary-hover: #383838;
     --button-secondary-hover: #1a1a1a;
   }
 }
@@ -69,9 +205,9 @@
   border: none;
   border: 1px solid transparent;
   transition:
-    background 0.2s,
-    color 0.2s,
-    border-color 0.2s;
+          background 0.2s,
+          color 0.2s,
+          border-color 0.2s;
   cursor: pointer;
   display: flex;
   align-items: center;

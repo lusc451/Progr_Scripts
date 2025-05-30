@@ -1,95 +1,83 @@
-import Image from "next/image";
+"use client"
+import { useState } from "react";
+import Display from "./components/Display";
+import Teclado from "./components/Teclado";
 import styles from "./page.module.css";
 
 export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>app/page.js</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    //States
+    const [currentValue, setCurrentValue] = useState('0')
+    const [previousValue, setPreviousValue] = useState('0')
+    const [isNewValue, setIsNewValue] = useState(true)
+    const [operator, setOperator] = useState('')
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+    //Funções
+    const handleButtonNumber = (num) => {
+        setCurrentValue((prev) => (isNewValue || prev === '0' ? num : prev + num))
+        setIsNewValue(false)
+    }
+
+    const handleButtonOperation = (operation) => {
+        setPreviousValue(currentValue)
+        setCurrentValue('0')
+        setOperator(operation)
+        setIsNewValue(true)
+    }
+
+
+    const handleEquals = () => {
+        if (!operator || !previousValue) return
+
+        const a = parseFloat(previousValue)
+        const b = parseFloat(currentValue)
+        let result = 0
+
+        switch (operator) {
+            case '+':
+                result = a + b
+                break
+            case '-':
+                result = a - b
+                break
+            case '*':
+                result = a * b
+                break
+            case '/':
+                result = b !== 0 ? a / b : NaN
+                break
+        }
+
+        setCurrentValue(String(result))
+        setPreviousValue(null)
+        setOperator(null)
+        setIsNewValue(true)
+    }
+
+    const handleClear = () => {
+        setCurrentValue('0')
+        setPreviousValue(null)
+        setOperator(null)
+        setIsNewValue(false)
+    }
+
+    const handleClearCurrent = () => {
+        setCurrentValue('0')
+        setIsNewValue(true)
+    }
+
+    return (
+        <div className={styles.page}>
+            <h1 className={styles.title}>Calculadora</h1>
+            <div>
+                <Display valorDisplay={currentValue} valorDisplayPrev={previousValue + operator} />
+                <Teclado
+                    onClickNum={handleButtonNumber}
+                    onClickClearAll={handleClear}
+                    onClickClearCurrent={handleClearCurrent}
+                    onClickEqual={handleEquals}
+                    onClickOperation={handleButtonOperation}
+                />
+            </div>
         </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+    );
 }
