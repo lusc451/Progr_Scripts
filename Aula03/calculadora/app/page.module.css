@@ -16,14 +16,10 @@
   padding: 80px;
   gap: 40px;
   font-family: var(--font-geist-sans);
-  background-image: url(/background.jpg);
-  background-size: cover; /* Adicione isso para cobrir todo o fundo */
-  background-position: center; /* Centraliza a imagem */
-  background-repeat: no-repeat; /* Evita repetição */
 }
 
 .title {
-  color: #202020;
+  color: #ffffff;
 }
 
 .display {
