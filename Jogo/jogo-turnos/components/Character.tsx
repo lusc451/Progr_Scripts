@@ -11,15 +11,15 @@ const CharacterCard: React.FC<Props> = ({ character }) => {
     const healthPercentage = (character.health / character.maxHealth) * 100;
 
     return (
-        <div className="p-4 bg-gray-800 rounded-lg shadow-md text-center">
-            <h2 className="text-xl font-bold mb-2">{character.name}</h2>
-            <div className="w-full bg-red-900 h-4 rounded">
+        <div className="bg-gray-800 p-6 rounded-xl shadow-lg text-center w-full max-w-xs">
+            <h2 className="text-2xl font-bold mb-3">{character.name}</h2>
+            <div className="w-full bg-gray-700 h-5 rounded overflow-hidden">
                 <div
-                    className="bg-green-500 h-4 rounded"
+                    className="bg-green-500 h-5 transition-all duration-300"
                     style={{ width: `${healthPercentage}%` }}
-                ></div>
+                />
             </div>
-            <p className="mt-2">HP: {character.health} / {character.maxHealth}</p>
+            <p className="mt-2 text-sm">HP: {character.health} / {character.maxHealth}</p>
         </div>
     );
 };

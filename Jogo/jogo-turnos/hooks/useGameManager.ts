@@ -33,10 +33,30 @@ export const useGameManager = () => {
         }, 500);
     };
 
+    const heroDefend = () => {
+        setLog(prev => ["Herói se defendeu!", ...prev]);
+    };
+
+    const heroHeal = () => {
+        setHero(prev => {
+            const healed = Math.min(prev.maxHealth, prev.health + 20);
+            return { ...prev, health: healed };
+        });
+        setLog(prev => ["Herói usou uma poção e se curou!", ...prev]);
+    };
+
+    const heroRun = () => {
+        setLog(prev => ["Herói fugiu da batalha!", ...prev]);
+    };
+
+
     return {
         hero,
         villain,
         log,
         heroAttack,
+        heroDefend,
+        heroHeal,
+        heroRun,
     };
 };
